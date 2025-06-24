@@ -9,6 +9,24 @@ import {
   FaTiktok,
 } from "react-icons/fa";
 
+const socials = [
+  {
+    name: "Instagram",
+    url: "https://instagram.com/update.lagos",
+    icon: <FaInstagram size={28} className="text-pink-500" />,
+  },
+  {
+    name: "Snapchat",
+    url: "https://snapchat.com/add/update.lagos",
+    icon: <FaSnapchatGhost size={28} className="text-yellow-400" />,
+  },
+  {
+    name: "TikTok",
+    url: "https://www.tiktok.com/@update.lagos",
+    icon: <FaTiktok size={28} className="text-white" />,
+  },
+];
+
 const Footer = () => {
   return (
     <div className="bg-[#001008]">
@@ -24,7 +42,7 @@ const Footer = () => {
                 className="w-20 h-20"
               />
             </Link>
-            <p className="tracking-wider font-bold text-2xl">
+            <p className="tracking-wider font-bold md:text-2xl text-lg">
               <span className="text-red-500">Up</span>
               <span className="text-yellow-600">date</span>
               <span className="text-blue-600">Lagos</span>
@@ -34,19 +52,29 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="text-3xl flex gap-8">
-            <FaInstagram />
-            <FaSnapchatSquare />
-            <FaTiktok />
+          <div className="flex gap-8 md:gap-24 items-center text-white justify-center  w-full">
+            <Link href="/">Home</Link>
+            <Link href="/about">About</Link>
+            <Link href="/programs">Programs</Link>
+            <Link href="/contact">Contact</Link>
+          </div>
+
+          <div className="flex gap-12">
+            {socials.map(({ name, url, icon }) => (
+              <a
+                key={name}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={name}
+                className="flex flex-col items-center space-y-2 hover:opacity-80 transition"
+              >
+                {icon}
+              </a>
+            ))}
           </div>
         </div>
 
-        <div className="flex gap-8 md:gap-24 items-center text-white justify-center my-8 w-full">
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/programs">Programs</Link>
-          <Link href="/contact">Contact</Link>
-        </div>
         <div className="w-full bg-muted-foreground/20 h-[1px] mt-10" />
         <div className="mt-4 flex justify-between w-full">
           <p className="uppercase text-xs">

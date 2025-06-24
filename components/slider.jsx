@@ -51,7 +51,7 @@ const slides = [
   },
   {
     id: 6,
-    title: "Free & Subsidized Healthcare",
+    title: "Discounted Public Transport",
     description:
       "Show your Student ID and enjoy reduced fares on buses and other public transport systems within Lagos. Affordable and accessible travel for all students.",
     img: "/pictures/marcus.jpg",

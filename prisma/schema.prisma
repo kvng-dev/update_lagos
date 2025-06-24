@@ -16,9 +16,14 @@ datasource db {
 
 model User {
   id        Int      @id @default(autoincrement())
-  name      String
-  phone     String
-  message  String
-  email     String   @unique
+  name              String
+  phone             String
+  message           String
+  email              String   @unique
+  school             String?
+  course             String?
+  level               String?
+  matricNumber       String?
+  lga                String?
   createdAt DateTime @default(now())
 }

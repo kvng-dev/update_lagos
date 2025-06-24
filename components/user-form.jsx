@@ -1,17 +1,27 @@
+"use client";
 import { useState } from "react";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
 import { toast } from "sonner";
-
+import { Loader2 } from "lucide-react";
 
 export default function UserForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
+    school: "",
+    course: "",
+    level: "",
+    matricNumber: "",
+    lga: "",
+    typeOfSupport: "",
+    currentlyReceivingAid: "",
+    hasDisability: "",
     message: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -22,90 +32,134 @@ export default function UserForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
+      setIsLoading(true);
       const response = await fetch("/api/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData), // Make sure formData is a state object
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error("Submission failed:", errorData);
-        toast.error("Something went wrong. Please try again.");
-        return;
-      }
+      if (!response.ok) throw new Error("Submission failed");
 
-      const result = await response.json();
-      console.log("Submitted:", result);
       toast.success("Form submitted successfully!");
-
-      // Optionally reset form
       setFormData({
         name: "",
         email: "",
         phone: "",
+        school: "",
+        course: "",
+        level: "",
+        matricNumber: "",
+        lga: "",
         message: "",
       });
     } catch (error) {
-      console.error("Submission error:", error);
-      toast.error("An error occurred. Please try again later.");
+      toast.error("Submission error. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-xl mx-auto p-12 bg-transparent rounded-lg shadow-md flex flex-col gap-4 text-black w-full"
+      className="max-w-5xl mx-auto p-4 flex flex-col gap-4 text-black bg-white"
     >
-      <Input
-        type="text"
-        name="name"
-        placeholder="Enter Your Name"
-        value={formData.name}
-        onChange={handleChange}
-        className="bg-white"
-        required
-      />
+      <div className="flex gap-4">
+        <Input
+          name="name"
+          placeholder="Full Name"
+          value={formData.name}
+          className="w-1/2"
+          onChange={handleChange}
+          required
+        />
+        <Input
+          name="email"
+          placeholder="Email Address"
+          type="email"
+          className="w-1/2"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="flex gap-4">
+        <Input
+          name="phone"
+          className="w-1/2"
+          placeholder="Phone Number"
+          value={formData.phone}
+          onChange={handleChange}
+          required
+        />
+        <Input
+          name="school"
+          placeholder="School Name"
+          value={formData.school}
+          className="w-1/2"
+          onChange={handleChange}
+          required
+        />
+      </div>
 
-      <Input
-        type="email"
-        name="email"
-        placeholder="Enter Your Email"
-        value={formData.email}
-        className="bg-white"
-        onChange={handleChange}
-        required
-      />
+      <div className="flex gap-4">
+        <Input
+          name="course"
+          className="w-1/2"
+          placeholder="Course of Study"
+          value={formData.course}
+          onChange={handleChange}
+          required
+        />
+        <Input
+          name="level"
+          placeholder="Current Level (e.g. 300L)"
+          className="w-1/2"
+          value={formData.level}
+          onChange={handleChange}
+        />
+      </div>
 
-      <Input
-        type="text"
-        name="phone"
-        placeholder="Enter Your Phone Number"
-        value={formData.phone}
-        onChange={handleChange}
-        required
-        className="bg-white"
-      />
+      <div className="flex gap-4">
+        <Input
+          name="matricNumber"
+          className="w-1/2"
+          placeholder="Matric Number"
+          value={formData.matricNumber}
+          onChange={handleChange}
+        />
+        <Input
+          name="lga"
+          placeholder="LGA (Local Govt Area)"
+          className="w-1/2"
+          value={formData.lga}
+          onChange={handleChange}
+        />
+      </div>
 
       <Textarea
         name="message"
-        placeholder="Message or Additional Info"
+        placeholder="What kind of support do you need?"
+        rows={4}
         value={formData.message}
         onChange={handleChange}
-        rows={4}
-        className="resize-none bg-white"
+        className="resize-none"
       />
-
       <Button
-        size={"lg"}
         type="submit"
-        className="bg-green-500 text-white font-semibold py-2 rounded hover:bg-green-600 transition"
+        className="bg-green-600 text-white font-bold hover:bg-green-700"
+        disabled={isLoading}
       >
-        Submit
+        {isLoading ? (
+          <>
+            <Loader2 />
+            Submitting
+          </>
+        ) : (
+          "Submit Form"
+        )}
       </Button>
     </form>
   );

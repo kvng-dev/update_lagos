@@ -2,58 +2,61 @@
 import Benefits from "@/components/benefits";
 import Slider from "@/components/slider";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import {
-  FaBriefcase,
   FaChalkboardTeacher,
   FaCommentDots,
-  FaLightbulb,
   FaUsers,
+  FaWheelchair,
 } from "react-icons/fa";
 
 export default function Home() {
+  const [registeredStudents, setRegisteredStudents] = useState(null);
+
+  useEffect(() => {
+    async function fetchUserCount() {
+      try {
+        const res = await fetch("/api/users/count");
+        const data = await res.json();
+        setRegisteredStudents(data.count);
+      } catch (error) {
+        console.error("Failed to fetch user count:", error);
+      }
+    }
+    fetchUserCount();
+  }, []);
   return (
     <div>
       <Slider />
       <div className="bg-white">
-        <div className="flex flex-wrap  md:flex-nowrap gap-6 container px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 mx-auto py-16 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 container px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 mx-auto py-16 relative">
           <StatsCard
             title="Registered Students"
-            value={12458}
+            value={registeredStudents ?? 0}
             icon={<FaUsers />}
             description="Total number of student accounts across Lagos"
           />
-          {/* <StatsCard
-            title="Graduates from Programs"
-            value="5,213"
-            // icon={<FaGraduationCap />}
-            description="Completed one or more state-sponsored programs"
-          /> */}
-          <StatsCard
-            title="Job Placements"
-            value={1094}
-            icon={<FaBriefcase />}
-            description="Students matched to jobs or internships"
-          />
 
           <StatsCard
-            title="Innovations Launched"
+            title="Helped Students with Disabilities"
             value={87}
-            icon={<FaLightbulb />}
-            description="Student-led projects funded or supported"
+            icon={<FaWheelchair />}
+            description="Support and resources provided to students with disabilities"
           />
 
           <StatsCard
-            title="Feedback Submissions"
+            title="Loans Granted"
             value={3329}
             icon={<FaCommentDots />}
-            description="Suggestions and reports from students"
+            description="Number of financial loans granted to students"
           />
+
           <StatsCard
-            title="Workshops Delivered"
+            title="School Fees Paid"
             value={434}
             icon={<FaChalkboardTeacher />}
-            description="Tech, leadership, and career workshops across schools"
+            description="Financial support provided to help students pay school fees"
           />
         </div>
       </div>

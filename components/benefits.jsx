@@ -1,16 +1,12 @@
 import {
   BrainCircuit,
-  Briefcase,
   BriefcaseBusiness,
-  Bus,
   BusFront,
   CalendarCheck,
-  Coins,
   Heart,
   House,
   Laptop,
   MessageCircleMore,
-  Percent,
   Presentation,
   Speaker,
   Users2,
@@ -18,9 +14,9 @@ import {
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { motion } from "framer-motion";
-import UserForm from "./user-form";
-import { FaCoins } from "react-icons/fa";
+import { FaCoins, FaLaptop, FaUsers } from "react-icons/fa";
 import { BiSolidDiscount } from "react-icons/bi";
+import { useRouter } from "next/navigation";
 
 const containerVariants = {
   hidden: {},
@@ -51,6 +47,7 @@ const itemVariant = {
 };
 
 const Benefits = () => {
+  const router = useRouter();
   const benefits = [
     {
       type: "Grants",
@@ -85,12 +82,12 @@ const Benefits = () => {
     {
       type: "Digital Learning Tools",
       details: "Free or discounted access to online courses and platforms",
-      icon: <Laptop size={35} />,
+      icon: <FaLaptop size={35} />,
     },
     {
       type: "Mentorship Programs",
       details: "Connect with professionals and mentors in your field",
-      icon: <Users2 size={35} />,
+      icon: <FaUsers size={35} />,
     },
     {
       type: "Mental Health Support",
@@ -130,29 +127,13 @@ const Benefits = () => {
         "Team up with other students and stakeholders to co-create impactful community-driven solutions.",
     },
   ];
-  const works = [
-    {
-      title: "Voice Your Opinion",
-      idea: "Share your thoughts, ideas, and concerns on issues affecting students in Lagos.",
-      icon: <Speaker />,
-    },
-    {
-      title: "Engage in Discussions",
-      idea: "Participate in discussions, polls, and surveys to shape government initiatives.",
-      icon: <MessageCircleMore />,
-    },
-    {
-      title: "Track Progress",
-      idea: "Stay informed about the progress of your feedback and the impact of your contributions.",
-      icon: <Presentation />,
-    },
-  ];
+
   return (
     <>
       <div className=" py-24 bg-white text-black">
         <div className="container px-4 sm:px-8 md:px-12 lg:px-24 xl:px-36 mx-auto space-y-2">
           <h3 className="font-bold text-2xl md:text-3xl tracking-wider">
-            Benefits for <span className="text-green-500">Students</span>
+            Benefits for <span className="text-green-600">Students</span>
           </h3>
           <p className="text-lg text-muted-foreground font-medium mb-12">
             Update Lagos offers a range of benefits designed to support students
@@ -304,7 +285,15 @@ const Benefits = () => {
           today!
         </p>
 
-        <UserForm />
+        <Button
+          variant={"outline"}
+          className="bg-blue-500 border-none text-white"
+          size={"lg"}
+          onClick={() => router.push("/programs")}
+        >
+          Sign Up Now
+        </Button>
+        {/* <UserForm /> */}
       </div>
     </>
   );
