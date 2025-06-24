@@ -11,56 +11,51 @@ import { motion } from "framer-motion";
 const slides = [
   {
     id: 1,
-    title: "Update Lagos",
+    title: "Grants & Student Loans",
     description:
-      "Bridging the gap between the Lagos State Government and its youth—empowering the next generation of leaders.",
+      "Get access to financial aid for tuition, housing, and living costs. Verified students can apply for grants and loans designed to support your academic journey.",
     img: "/6006864.jpg",
-    cta: "Get Started",
-    bg: "text-brown-500",
+    cta: "Apply for Support",
   },
   {
     id: 2,
-    title: "Empowering Students Across Lagos",
+    title: "Student Finance & Income Support",
     description:
-      "Unlock access to education, mentorship, and tools designed to support academic and personal growth.",
+      "Enjoy exclusive discounts and offers from our partners across Lagos — from food and travel to shopping and entertainment — just by showing your Student ID.",
     img: "/pictures/shaquiel.jpg",
-    cta: "Explore Programs",
-    bg: "text-pink-800",
+    cta: "Explore Offers",
   },
   {
     id: 3,
-    title: "Your Voice, Your Lagos",
+    title: "Support for Students with Disabilities",
     description:
-      "Speak directly to the government. Share feedback, raise concerns, and be part of change-making conversations.",
+      "Every Lagos student has the right to education. We provide additional financial and academic support for students with disabilities, ensuring no one is left behind.",
     img: "/5324834.jpg",
-    cta: "Get Started",
-    bg: "text-blue-800",
+    cta: "Learn More",
   },
   {
     id: 4,
-    title: "Innovation Starts With You",
+    title: "Affordable Student Housing",
     description:
-      "Join bootcamps, workshops, and innovation hubs that bring your ideas to life and solve real-world problems.",
+      "Access subsidized on-campus housing options across Lagos universities. Safe, affordable, and designed to help you focus on your studies.",
     img: "/pictures/annie.jpg",
-    cta: "Get Started",
-    bg: "text-pink-200",
-    cta: "Explore",
+    cta: "Find Housing",
   },
   {
     id: 5,
-    title: "Career Pathways for Lagos Youth",
+    title: "Free & Subsidized Healthcare",
     description:
-      "Access internships, mentorships, and job placement programs tailored for Lagos students and recent grads.",
+      "Students can apply for healthcare assistance — covering prescriptions, dental care, eye care, and more. Especially for those from low-income backgrounds.",
     img: "/pictures/godfrey.jpg",
-    cta: "Explore",
+    cta: "Access Healthcare",
   },
   {
     id: 6,
-    title: "A Community That Listens",
+    title: "Free & Subsidized Healthcare",
     description:
-      "Participate in town halls and forums. Share your challenges and help shape a better future for all students.",
+      "Show your Student ID and enjoy reduced fares on buses and other public transport systems within Lagos. Affordable and accessible travel for all students.",
     img: "/pictures/marcus.jpg",
-    cta: "Explore",
+    cta: "Get Travel Pass",
   },
 ];
 
@@ -141,7 +136,7 @@ const Slider = () => {
                   <Button
                     size={"lg"}
                     variant={"outline"}
-                    className="bg-blue-500 text-white border-none mt-8 font-bold"
+                    className="bg-green-500 text-white border-none mt-8 font-semibold"
                   >
                     {slide.cta}
                   </Button>

@@ -18,6 +18,9 @@ import {
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { motion } from "framer-motion";
+import UserForm from "./user-form";
+import { FaCoins } from "react-icons/fa";
+import { BiSolidDiscount } from "react-icons/bi";
 
 const containerVariants = {
   hidden: {},
@@ -52,12 +55,12 @@ const Benefits = () => {
     {
       type: "Grants",
       details: "Financial aid to help cover educational expenses",
-      icon: <Coins size={35} />,
+      icon: <FaCoins size={35} />,
     },
     {
       type: "Discounts",
       details: "Exclusive discounts on essential services and products",
-      icon: <Percent size={35} />,
+      icon: <BiSolidDiscount size={35} />,
     },
     {
       type: "Employment Support",
@@ -157,7 +160,7 @@ const Benefits = () => {
           </p>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
             variants={containerVariant}
             initial="hidden"
             animate="show"
@@ -191,7 +194,7 @@ const Benefits = () => {
             transition={{ duration: 0.7 }}
             className="font-bold text-2xl md:text-3xl"
           >
-            <span className="text-green-500">How</span> It Works
+            <span className="text-blue-500">How</span> It Works
           </motion.h2>
           <p className="text-lg text-muted-foreground font-medium mb-12">
             Update Lagos provides a direct channel for students to engage with
@@ -301,13 +304,7 @@ const Benefits = () => {
           today!
         </p>
 
-        <Button
-          variant={"outline"}
-          className="bg-blue-500 border-none text-white"
-          size={"lg"}
-        >
-          Sign Up Now
-        </Button>
+        <UserForm />
       </div>
     </>
   );

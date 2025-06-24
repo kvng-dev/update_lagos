@@ -2,6 +2,7 @@ import { Plus_Jakarta_Sans, Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { Toaster } from "sonner";
 
 const truculenta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
       >
         <Navbar />
         <main className="">{children}</main>
+        <Toaster richColors />
         <Footer />
       </body>
     </html>
