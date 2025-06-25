@@ -80,15 +80,12 @@ const Navbar = () => {
           transition={{ delay: 0.6 }}
         >
           <Link href={"/"} className="flex gap-2 text-xl font-semibold">
-            {/* <p className="tracking-wider">
-            Update<span className="text-[#108a00] ">Lagos</span>
-          </p> */}
             <Image
-              src={"/logo-update.png"}
+              src={"/u-logo.png"}
               width={700}
               height={700}
               alt="logo"
-              className="w-20 h-20"
+              className="w-24 h-20"
             />
           </Link>
         </motion.div>
@@ -106,7 +103,9 @@ const Navbar = () => {
             { href: "/contact", label: "Contact" },
           ].map(({ href, label }) => (
             <motion.div key={href} variants={linkVariants}>
-              <Link href={href}>{label}</Link>
+              <Link className="hover:text-green-600" href={href}>
+                {label}
+              </Link>
             </motion.div>
           ))}
 

@@ -12,13 +12,10 @@ export async function POST(req) {
       phone,
       school,
       course,
-      matricNumber,
       level,
-      lga,
-      message,
     } = body;
 
-    if (!name || !email || !phone || !school || !matricNumber || !level) {
+    if (!name || !email || !phone || !school  || !level) {
       return NextResponse.json({ error: "Missing fields" }, { status: 400 });
     }
 
@@ -26,13 +23,10 @@ export async function POST(req) {
       data: {
         name,
         email,
-        message,
         phone,
         school,
         course,
-        matricNumber,
         level,
-        lga,
       },
     });
 

@@ -330,14 +330,14 @@ const Benefits = () => {
           <span className="text-yellow-600">the</span>{" "}
           <span className="text-blue-600">Movement</span>
         </h3>
-        <p className="text-lg text-white font-medium mb-6">
+        <p className="text-lg text-white font-medium mb-6 text-center">
           Be a part of the change for Update Lagos and start making a difference
           today!
         </p>
 
         <Button
           variant={"outline"}
-          className="bg-blue-500 border-none text-white"
+          className="bg-blue-500 border-none text-white mt-8 animate-bounce"
           size={"lg"}
           onClick={() => router.push("/programs")}
         >

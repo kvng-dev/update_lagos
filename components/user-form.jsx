@@ -14,9 +14,6 @@ export default function UserForm() {
     school: "",
     course: "",
     level: "",
-    matricNumber: "",
-    lga: "",
-    message: "",
   });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -47,9 +44,6 @@ export default function UserForm() {
         school: "",
         course: "",
         level: "",
-        matricNumber: "",
-        lga: "",
-        message: "",
       });
     } catch (error) {
       toast.error("Submission error. Please try again.");
@@ -61,7 +55,7 @@ export default function UserForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-5xl mx-auto p-4 flex flex-col gap-4 text-black bg-white"
+      className="max-w-5xl mx-auto p-4 flex flex-col gap-4 text-black bg-transparent"
     >
       <Input
         name="name"
@@ -108,27 +102,6 @@ export default function UserForm() {
         onChange={handleChange}
       />
 
-      <Input
-        name="matricNumber"
-        placeholder="Matric Number"
-        value={formData.matricNumber}
-        onChange={handleChange}
-      />
-      <Input
-        name="lga"
-        placeholder="LGA (Local Govt Area)"
-        value={formData.lga}
-        onChange={handleChange}
-      />
-
-      <Textarea
-        name="message"
-        placeholder="What kind of support do you need?"
-        rows={4}
-        value={formData.message}
-        onChange={handleChange}
-        className="resize-none"
-      />
       <Button
         type="submit"
         className="bg-green-600 text-white font-bold hover:bg-green-700"

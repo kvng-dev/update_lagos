@@ -54,11 +54,11 @@ const Footer = () => {
         >
           <Link href={"/"} className="flex gap-2 text-xl font-semibold">
             <Image
-              src={"/logo-update.png"}
-              width={500}
-              height={500}
+              src={"/u-logo.png"}
+              width={700}
+              height={700}
               alt="logo"
-              className="w-20 h-20 bg-white rounded-full"
+              className="w-24 h-20"
             />
           </Link>
           <p className="tracking-wider font-bold md:text-2xl text-lg">

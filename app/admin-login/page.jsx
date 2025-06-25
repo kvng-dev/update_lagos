@@ -4,24 +4,34 @@ import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function AdminLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   const handleLogin = async () => {
-    const res = await signIn("credentials", {
-      redirect: false,
-      username,
-      password,
-    });
+    try {
+      setIsLoading(true);
+      const res = await signIn("credentials", {
+        redirect: false,
+        username,
+        password,
+      });
 
-    if (res?.ok) {
-      toast.success("Login successful");
-      router.push("/admin");
-    } else {
-      toast.error("Invalid login");
+      if (res?.ok) {
+        toast.success("Login successful");
+        router.push("/admin");
+      } else {
+        toast.error("Invalid login");
+      }
+    } catch (error) {
+      toast.error("Login Failed. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -43,12 +53,23 @@ export default function AdminLogin() {
           onChange={(e) => setPassword(e.target.value)}
           className="w-full border p-2 mb-4"
         />
-        <button
+        <Button
+          asChild
+          variant={"outline"}
           onClick={handleLogin}
-          className="bg-green-600 text-white w-full py-2 rounded"
+          className="bg-green-600 text-white w-full py-2 rounded  gap-4 font-medium flex"
+          justify-center
+          disabled={isLoading}
         >
-          Login
-        </button>
+          {isLoading ? (
+            <div className="flex gap-4 items-center">
+              <Loader2 className="animate-spin" />
+              Logging In...
+            </div>
+          ) : (
+            "Login"
+          )}
+        </Button>
       </div>
     </div>
   );
