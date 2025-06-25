@@ -1,6 +1,0 @@
--- AlterTable
-ALTER TABLE "User" ADD COLUMN "course" TEXT;
-ALTER TABLE "User" ADD COLUMN "level" TEXT;
-ALTER TABLE "User" ADD COLUMN "lga" TEXT;
-ALTER TABLE "User" ADD COLUMN "matricNumber" TEXT;
-ALTER TABLE "User" ADD COLUMN "school" TEXT;
