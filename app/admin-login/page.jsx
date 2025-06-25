@@ -54,21 +54,13 @@ export default function AdminLogin() {
           className="w-full border p-2 mb-4"
         />
         <Button
-          asChild
           variant={"outline"}
           onClick={handleLogin}
           className="bg-green-600 text-white w-full py-2 rounded  gap-4 font-medium flex"
           justify-center
           disabled={isLoading}
         >
-          {isLoading ? (
-            <div className="flex gap-4 items-center">
-              <Loader2 className="animate-spin" />
-              Logging In...
-            </div>
-          ) : (
-            "Login"
-          )}
+          {isLoading ? <Loader2 className="animate-spin" /> : "Login"}
         </Button>
       </div>
     </div>
