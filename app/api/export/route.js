@@ -6,15 +6,7 @@ export async function GET() {
     orderBy: { createdAt: "desc" },
   });
 
-  const headers = [
-    "Name",
-    "Email",
-    "Phone",
-    "School",
-    "Course",
-    "Message",
-    "Matric Number",
-  ];
+  const headers = ["Name", "Email", "Phone", "School", "Course", "Level"];
 
   const rows = users.map((user) => [
     user.name,
@@ -22,8 +14,7 @@ export async function GET() {
     user.phone,
     user.school,
     user.course,
-    user.message ?? "",
-    user.matricNumber,
+    user.level,
   ]);
 
   const csvContent =

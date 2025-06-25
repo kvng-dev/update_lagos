@@ -88,7 +88,7 @@ export default function Home() {
         className="w-full bg-gray-100 py-16 px-6"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 0.8 }}
       >
         <div className="max-w-5xl mx-auto text-center">

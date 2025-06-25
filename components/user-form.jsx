@@ -104,7 +104,7 @@ export default function UserForm() {
 
       <Button
         type="submit"
-        className="bg-green-600 text-white font-bold hover:bg-green-700"
+        className="bg-green-600 text-white font-bold hover:bg-green-700 mt-4"
         disabled={isLoading}
       >
         {isLoading ? (

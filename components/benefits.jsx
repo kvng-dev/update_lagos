@@ -1,8 +1,11 @@
 import {
+  ArrowRightCircle,
+  ArrowRightFromLine,
   BrainCircuit,
   BriefcaseBusiness,
   BusFront,
   CalendarCheck,
+  ChevronsRight,
   Heart,
   House,
   Laptop,
@@ -186,6 +189,7 @@ const Benefits = () => {
                 <p className="text-gray-400 text-center group-hover:text-white capitalize">
                   {benefit.details}
                 </p>
+                <ChevronsRight className="opacity-0 group-hover:opacity-100 group-hover:ml-12 transition-all duration-500" />
               </motion.div>
             ))}
           </motion.div>
@@ -324,7 +328,7 @@ const Benefits = () => {
         </motion.div>
       </div>
 
-      <div className="space-y-2 my-24 flex items-center justify-center flex-col py-20">
+      <div className="space-y-2 flex items-center justify-center flex-col py-40 backdrop-blur-xs h-full">
         <h3 className="font-bold text-4xl md:text-5xl">
           <span className="text-red-600">Join</span>{" "}
           <span className="text-yellow-600">the</span>{" "}

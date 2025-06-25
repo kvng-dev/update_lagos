@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${truculenta.className} h-screen bg-[url('/pictures/arthur.jpg')] bg-cover bg-center text-white bg-no-repeat bg-fixed`}
+        className={`${truculenta.className} h-screen bg-[url('/pictures/arthur.jpg')] bg-cover bg-center text-white  bg-no-repeat bg-fixed`}
       >
         <Navbar />
         <main className="">{children}</main>

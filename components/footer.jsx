@@ -124,9 +124,9 @@ const Footer = () => {
           </motion.div>
 
           <motion.div variants={fadeUp}>
-            <div className="space-y-4">
-              <h4 className="text-lg md:text-xl text-white">Socials</h4>
-              <div className="flex md:gap-12 gap-6 sm:flex-col md:flex-row">
+            <div className="flex gap-2 flex-col md:items-start items-center">
+              <h4 className="md:text-lg text-white">Follow us on</h4>
+              <div className="flex md:gap-12 gap-8 sm:flex-col md:flex-row">
                 {socials.map(({ name, url, icon }) => (
                   <a
                     key={name}
@@ -137,6 +137,7 @@ const Footer = () => {
                     className="flex flex-col items-center space-y-2 hover:opacity-80 transition"
                   >
                     {icon}
+                    <span className="hidden md:flex">{name}</span>
                   </a>
                 ))}
               </div>
@@ -152,7 +153,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <motion.div
-          className="mt-4 flex justify-between w-full text-xs uppercase"
+          className="mt-4 flex justify-between w-full text-[8px] sm:text-xs uppercase"
           variants={fadeUp}
         >
           <p>

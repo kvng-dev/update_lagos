@@ -82,10 +82,10 @@ export default async function AdminPage() {
                   <TableCell>{submission.school}</TableCell>
                   <TableCell>{submission.course}</TableCell>
                   <TableCell>{submission.level}</TableCell>
-                  <TableCell>
+                  <TableCell className="text-right px-6">
                     <AlertDialog>
                       <AlertDialogTrigger>
-                        <Trash2 className="text-red-600" />
+                        <Trash2 className="text-red-600 cursor-pointer hover:text-red-700" />
                       </AlertDialogTrigger>
                       <AlertDialogContent className="text-black">
                         <AlertDialogHeader>

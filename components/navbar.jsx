@@ -91,7 +91,7 @@ const Navbar = () => {
         </motion.div>
 
         <motion.div
-          className="hidden md:flex gap-12 items-center"
+          className="hidden md:flex gap-12 items-center text-[18px] font-light"
           variants={navVariants}
           initial="hidden"
           animate="visible"
@@ -129,11 +129,11 @@ const Navbar = () => {
             <SheetContent className="h-full bg-white">
               <SheetHeader className="absolute top-0 left-2">
                 <Image
-                  src={"/logo-update.png"}
-                  width={500}
-                  height={500}
+                  src={"/u-logo.png"}
+                  width={700}
+                  height={700}
                   alt="logo"
-                  className="w-20 h-20"
+                  className="w-24 h-20"
                 />
                 <SheetTitle className="text-sm">
                   <span className="text-red-500">Up</span>
@@ -142,7 +142,7 @@ const Navbar = () => {
                 </SheetTitle>
               </SheetHeader>
               <motion.div
-                className="flex text-black flex-col text-xl items-center justify-center gap-12 h-full"
+                className="flex text-black flex-col text-2xl font-light items-center justify-center gap-12 h-full"
                 variants={menuVariants}
                 initial="hidden"
                 animate="visible"
