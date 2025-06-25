@@ -1,8 +1,16 @@
+// app/api/user-count/route.ts
+import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 
 export async function GET() {
-  const count = await prisma.user.count();
-  return new Response(JSON.stringify({ count }), {
-    headers: { "Content-Type": "application/json" },
-  });
+  try {
+    const count = await prisma.user.count();
+    return NextResponse.json({ count });
+  } catch (error) {
+    console.error("Error getting user count:", error);
+    return NextResponse.json(
+      { error: "Failed to fetch user count" },
+      { status: 500 }
+    );
+  }
 }

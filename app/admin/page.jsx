@@ -7,11 +7,25 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import prisma from "@/lib/prisma";
-import { Download } from "lucide-react";
+import { Download, Trash2 } from "lucide-react";
 import { LogoutButton } from "@/components/logout-btn";
+import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
+import DeleteButton from "@/components/delete-btn";
 
 export default async function AdminPage() {
   const session = await getServerSession(authOptions);
@@ -59,6 +73,7 @@ export default async function AdminPage() {
                 <TableHead>Matric Number</TableHead>
                 <TableHead>LGA</TableHead>
                 <TableHead>Message</TableHead>
+                <TableHead className="text-right">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -73,6 +88,28 @@ export default async function AdminPage() {
                   <TableCell>{submission.matricNumber}</TableCell>
                   <TableCell>{submission.lga}</TableCell>
                   <TableCell>{submission.message || "N/A"}</TableCell>
+                  <TableCell>
+                    <AlertDialog>
+                      <AlertDialogTrigger>
+                        <Trash2 className="text-red-600" />
+                      </AlertDialogTrigger>
+                      <AlertDialogContent className="text-black">
+                        <AlertDialogHeader>
+                          <AlertDialogTitle>
+                            Are you absolutely sure?
+                          </AlertDialogTitle>
+                          <AlertDialogDescription>
+                            This action cannot be undone. This will permanently
+                            delete user and remove their data from our servers.
+                          </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter>
+                          <AlertDialogCancel>Cancel</AlertDialogCancel>
+                          <DeleteButton id={submission.id} />
+                        </AlertDialogFooter>
+                      </AlertDialogContent>
+                    </AlertDialog>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
