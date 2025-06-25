@@ -16,9 +16,6 @@ export default function UserForm() {
     level: "",
     matricNumber: "",
     lga: "",
-    typeOfSupport: "",
-    currentlyReceivingAid: "",
-    hasDisability: "",
     message: "",
   });
   const [isLoading, setIsLoading] = useState(false);
