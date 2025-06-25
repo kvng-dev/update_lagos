@@ -1,16 +1,52 @@
-import Image from "next/image";
+"use client";
 
-const page = () => {
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const Page = () => {
   return (
-    <div className="py-24 min-h-screen w-full bg-white text-black">
+    <motion.div
+      className="py-24 min-h-screen w-full bg-white text-black"
+      initial="hidden"
+      animate="visible"
+      variants={staggerContainer}
+    >
       <div className="flex h-full items-center justify-between container px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 mx-auto text-black flex-col">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold my-12">
-          About Us
-        </h1>
-        <div className="grid md:grid-cols-2 gap-4 h-full my-6 items-center">
-          <Image src="/green.jpg" alt="" height={1000} width={1000} />
-          <p className="text-lg tracking-wide leading-8">
-            <span className="text-2xl text-green-500 font-bold">
+        <motion.h1
+          className="text-3xl md:text-4xl lg:text-5xl font-medium my-12 max-w-3xl text-center leading-14"
+          variants={fadeInUp}
+        >
+          Building a Better Tomorrow, Together
+        </motion.h1>
+
+        {/* Section 1 */}
+        <motion.div
+          className="grid md:grid-cols-2 gap-8 h-full my-6 items-center"
+          variants={fadeInUp}
+        >
+          <Image
+            src="/green.jpg"
+            className="rounded-lg"
+            alt=""
+            height={1000}
+            width={1000}
+          />
+          <motion.p className="md:text-lg tracking-wide leading-8">
+            <span className="text-xl md:text-2xl text-green-500 font-bold">
               Update Lagos
             </span>{" "}
             aims to be the first and only platform that breaches the gap between
@@ -21,15 +57,19 @@ const page = () => {
             have a voice about the things that matter most to you and the
             challenges and wishes of every Lagos student, with the aim and sole
             purpose of achieving and defeating all academic hurdles.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-4 h-full my-6 items-center">
-          <p className="text-lg tracking-wide text-justify leading-8">
+        {/* Section 2 */}
+        <motion.div
+          className="flex flex-col-reverse md:grid md:grid-cols-2 gap-4 h-full my-6 items-center"
+          variants={fadeInUp}
+        >
+          <motion.p className=" md:text-lg tracking-wide text-justify leading-8">
             Students with verified identities should be able to enjoy benefits
             ranging from as little as school books, to huge discounts and
             offers, down to part-time work{" "}
-            <span className="text-green-500 text-2xl font-semibold">
+            <span className="text-green-500 md:text-2xl text-xl font-semibold">
               opportunities
             </span>{" "}
             with the government as well as from private companies and businesses
@@ -37,63 +77,48 @@ const page = () => {
             have a channel where your voice will be projected, as every student
             has the individual right to comment and express their grievances and
             expectations from the Lagos Government.
-          </p>
+          </motion.p>
           <Image src="/3026238.jpg" alt="" height={1000} width={1000} />
-        </div>
-        <div className="grid md:grid-cols-2 gap-4 h-full my-6 items-center">
-          <Image src="/11201843.jpg" alt="" height={1000} width={1000} />
-          <div>
-            <p className="text-lg tracking-wide">
-              Here is a couple of our dreams and aspirations we aim to achieve
-              with our project:
-            </p>
+        </motion.div>
 
-            <ul className="list-decimal px-8 space-y-2">
-              <li>
-                Grants & Loans to Students with verified identities to help with
-                tuition, accommodation and other living costs in our community.
-              </li>
-              <li>
-                Income & Student Finance Support programs, that partner with
-                businesses and companies that understand our dreams for
-                students, with massive discounts and offers, redeemable at
-                retail shops upon presentation of the Student’s ID Card.
-                Students should be able to have a wide range of discounts on
-                travel, food, entertainment and retail.
-              </li>
-              <li>
-                Employment and Support Allowance for students with disabilities.
-                The disabled will not be left out, as every Lagos child retains
-                the right to get proper education, without limitations due to
-                their physical disabilities.
-              </li>
-              <li>
-                Housing benefits: Many universities in Lagos offer on-campus
-                accommodation. These can be made even more affordable at
-                subsidized rates, cheap enough and convenient for Students to
-                benefit from.
-              </li>
-              <li>
-                Health Care: Students should be able to have access to free
-                healthcare services, especially students from low-income
-                backgrounds. Students should be able to apply for help with
-                healthcare costs, such as prescriptions, dental care, eye care,
-                etc.
-              </li>
-              <li>
-                Public transport Discounts: Students should be able to benefit
-                from discounted travels, and trips within the state, with
-                reduced fares upon presentation of a Student ID card from any of
-                the institutions in Lagos State. These benefits contribute to a
-                supportive environment that enhances both the academic and
-                personal development of students in Lagos State. These are our
-                aims and goals we hope to achieve.
-              </li>
-            </ul>
-          </div>
-        </div>
+        {/* Section 3 */}
+        <motion.div
+          className="grid md:grid-cols-2 gap-4 h-full my-6 items-center"
+          variants={fadeInUp}
+        >
+          <Image src="/11201843.jpg" alt="" height={1000} width={1000} />
+          <motion.div>
+            <p className="text-lg tracking-wide mb-4">
+              Here is a couple of our{" "}
+              <span className="text-green-500 md:text-2xl text-xl font-semibold">
+                dreams
+              </span>{" "}
+              and aspirations we aim to achieve with our project:
+            </p>
+            <motion.ul
+              className="list-decimal px-8 space-y-2"
+              initial="hidden"
+              animate="visible"
+              variants={staggerContainer}
+            >
+              {[
+                "Grants & Loans to Students...",
+                "Income & Student Finance Support programs...",
+                "Employment and Support Allowance for students with disabilities...",
+                "Housing benefits: Many universities...",
+                "Health Care: Students should be able to access free healthcare...",
+                "Public transport Discounts: Students should benefit from discounted travels...",
+              ].map((item, index) => (
+                <motion.li key={index} variants={fadeInUp}>
+                  {item}
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
-export default page;
+
+export default Page;

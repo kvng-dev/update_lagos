@@ -27,6 +27,20 @@ const containerVariants = {
   },
 };
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+const cardVariant = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
 const itemVariants = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -131,14 +145,25 @@ const Benefits = () => {
   return (
     <>
       <div className=" py-24 bg-white text-black">
-        <div className="container px-4 sm:px-8 md:px-12 lg:px-24 xl:px-36 mx-auto space-y-2">
-          <h3 className="font-bold text-2xl md:text-3xl tracking-wider">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+          className="container px-4 sm:px-8 md:px-12 lg:px-24 xl:px-36 mx-auto space-y-2"
+        >
+          <motion.h3
+            variants={fadeUp}
+            className="font-bold text-2xl md:text-3xl tracking-wider"
+          >
             Benefits for <span className="text-green-600">Students</span>
-          </h3>
-          <p className="text-lg text-muted-foreground font-medium mb-12">
+          </motion.h3>
+          <motion.p
+            className="text-lg text-muted-foreground font-medium mb-12"
+            variants={fadeUp}
+          >
             Update Lagos offers a range of benefits designed to support students
             in their academic and personal lives
-          </p>
+          </motion.p>
 
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
@@ -164,7 +189,7 @@ const Benefits = () => {
               </motion.div>
             ))}
           </motion.div>
-        </div>
+        </motion.div>
       </div>
 
       <div className=" py-24 bg-[#f0f7f6] text-black">
@@ -177,10 +202,15 @@ const Benefits = () => {
           >
             <span className="text-blue-500">How</span> It Works
           </motion.h2>
-          <p className="text-lg text-muted-foreground font-medium mb-12">
+          <motion.p
+            className="text-lg text-muted-foreground font-medium mb-12"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.3 }}
+          >
             Update Lagos provides a direct channel for students to engage with
             the government and influence policy decisions
-          </p>
+          </motion.p>
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -244,19 +274,35 @@ const Benefits = () => {
       </div>
 
       <div className="bg-white text-black py-24">
-        <div className="container px-4 sm:px-8 md:px-12 lg:px-24 xl:px-36 mx-auto space-y-2">
-          <h3 className="font-bold text-2xl md:text-3xl">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+          className="container px-4 sm:px-8 md:px-12 lg:px-24 xl:px-36 mx-auto space-y-2"
+        >
+          <motion.h3
+            className="font-bold text-2xl md:text-3xl"
+            variants={fadeUp}
+          >
             What <span className="text-green-500">You</span> Can Do
-          </h3>
-          <p className="text-lg text-muted-foreground font-medium mb-12">
+          </motion.h3>
+          <motion.p
+            className="text-lg text-muted-foreground font-medium mb-12"
+            variants={fadeUp}
+          >
             Update Lagos empowers students to actively participate in shaping
             the future of their city.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          </motion.p>
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            variants={containerVariants}
+          >
             {forums.map((work) => (
-              <div
+              <motion.div
                 key={work.title}
                 className="border border-gray-100 shadow-md rounded-md overflow-hidden group cursor-pointer transition-all duration-500 ease-in-out"
+                variants={cardVariant}
+                whileHover={{ scale: 1.03 }}
               >
                 <Image
                   src={work.image}
@@ -272,14 +318,18 @@ const Benefits = () => {
                     {work.words}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       <div className="space-y-2 my-24 flex items-center justify-center flex-col py-20">
-        <h3 className="font-bold text-4xl md:text-5xl">Join the Movement</h3>
+        <h3 className="font-bold text-4xl md:text-5xl">
+          <span className="text-red-600">Join</span>{" "}
+          <span className="text-yellow-600">the</span>{" "}
+          <span className="text-blue-600">Movement</span>
+        </h3>
         <p className="text-lg text-white font-medium mb-6">
           Be a part of the change for Update Lagos and start making a difference
           today!

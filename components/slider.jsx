@@ -113,7 +113,7 @@ const Slider = () => {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-6xl font-semibold mb-2 bg-gradient-to-br from-white to-gray-300 bg-clip-text text-transparent"
+                className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-2 bg-gradient-to-br from-white to-gray-300 bg-clip-text text-transparent"
               >
                 {slide.title}
               </motion.h1>
@@ -122,7 +122,7 @@ const Slider = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className={`text-2xl max-w-4xl`}
+                className={`text-lg md:text-2xl max-w-4xl`}
               >
                 {slide.description}
               </motion.h2>

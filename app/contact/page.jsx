@@ -1,5 +1,8 @@
 "use client";
 
+import { Card } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import Image from "next/image";
 import { FaInstagram, FaSnapchatGhost, FaTiktok } from "react-icons/fa";
 
 const socials = [
@@ -20,11 +23,36 @@ const socials = [
   },
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
 export default function ContactPage() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white py-24 px-6 text-black">
-      <h1 className="text-4xl font-bold mb-12 text-green-700">
-        Get in Touch with Update Lagos
+    <motion.div className="min-h-screen flex flex-col items-center justify-center bg-white py-28 px-6 text-black relative">
+      <div
+        className="absolute z-0
+       opacity-20 w-full flex items-center justify-center"
+      >
+        <Image src="/5124556.jpg" height={1000} width={1000} alt="" />
+      </div>
+      <h1 className="text-4xl font-bold mb-12 text-green-700 text-center">
+        Get in Touch with Us <br />
+        Today
       </h1>
 
       <p className="max-w-3xl text-center text-gray-700 mb-10 text-lg">
@@ -34,24 +62,34 @@ export default function ContactPage() {
         and engagement help us improve and grow together.
       </p>
 
-      <div className="flex gap-16 mb-12">
+      <motion.div
+        className="flex flex-col md:flex-row gap-16 mb-12  relative z-20 items-center"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
         {socials.map(({ name, url, icon }) => (
-          <a
-            key={name}
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={name}
-            className="flex flex-col items-center space-y-2 hover:opacity-80 transition"
-          >
-            {icon}
-            <span className="text-lg font-semibold">{name}</span>
-            <span className="text-sm text-gray-500">@update.lagos</span>
-          </a>
+          <motion.div key={name} variants={cardVariants}>
+            <Card className="p-8 hover:border-green-600 border transition-all duration-500">
+              <a
+                key={name}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={name}
+                className="flex flex-col items-center space-y-2 hover:opacity-80 transition"
+              >
+                {icon}
+                <span className="text-lg font-semibold">{name}</span>
+                <span className="text-sm text-gray-500">@update.lagos</span>
+              </a>
+            </Card>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
-      <div className="max-w-xl text-center space-y-6 text-gray-800">
+      <div className="max-w-xl text-center space-y-6 ">
         <p>
           <strong>Visit Us:</strong> <br />
           17 Abdul Quadri Adebiyi Street, Magodo GRA Phase 2, Lagos
@@ -59,7 +97,7 @@ export default function ContactPage() {
           We welcome visitors during office hours Monday to Friday, 9am to 5pm.
         </p>
 
-        <p>
+        <p className="relative z-20">
           <strong>Email Us:</strong> <br />
           For inquiries, support, or partnership opportunities, send us an email
           at{" "}
@@ -72,7 +110,7 @@ export default function ContactPage() {
           . We aim to respond within 24-48 hours.
         </p>
 
-        <p>
+        <p className="relative z-20">
           <strong>Call or Text:</strong> <br />
           Reach us directly by phone or WhatsApp at{" "}
           <a href="tel:+2348099999471" className="text-green-600 underline">
@@ -90,6 +128,6 @@ export default function ContactPage() {
           and student opportunities.
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }

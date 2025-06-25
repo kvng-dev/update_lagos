@@ -63,78 +63,63 @@ export default function UserForm() {
       onSubmit={handleSubmit}
       className="max-w-5xl mx-auto p-4 flex flex-col gap-4 text-black bg-white"
     >
-      <div className="flex gap-4">
-        <Input
-          name="name"
-          placeholder="Full Name"
-          value={formData.name}
-          className="w-1/2"
-          onChange={handleChange}
-          required
-        />
-        <Input
-          name="email"
-          placeholder="Email Address"
-          type="email"
-          className="w-1/2"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="flex gap-4">
-        <Input
-          name="phone"
-          className="w-1/2"
-          placeholder="Phone Number"
-          value={formData.phone}
-          onChange={handleChange}
-          required
-        />
-        <Input
-          name="school"
-          placeholder="School Name"
-          value={formData.school}
-          className="w-1/2"
-          onChange={handleChange}
-          required
-        />
-      </div>
+      <Input
+        name="name"
+        placeholder="Full Name"
+        value={formData.name}
+        onChange={handleChange}
+        required
+      />
+      <Input
+        name="email"
+        placeholder="Email Address"
+        type="email"
+        value={formData.email}
+        onChange={handleChange}
+        required
+      />
 
-      <div className="flex gap-4">
-        <Input
-          name="course"
-          className="w-1/2"
-          placeholder="Course of Study"
-          value={formData.course}
-          onChange={handleChange}
-          required
-        />
-        <Input
-          name="level"
-          placeholder="Current Level (e.g. 300L)"
-          className="w-1/2"
-          value={formData.level}
-          onChange={handleChange}
-        />
-      </div>
+      <Input
+        name="phone"
+        placeholder="Phone Number"
+        value={formData.phone}
+        onChange={handleChange}
+        required
+      />
+      <Input
+        name="school"
+        placeholder="School Name"
+        value={formData.school}
+        onChange={handleChange}
+        required
+      />
 
-      <div className="flex gap-4">
-        <Input
-          name="matricNumber"
-          className="w-1/2"
-          placeholder="Matric Number"
-          value={formData.matricNumber}
-          onChange={handleChange}
-        />
-        <Input
-          name="lga"
-          placeholder="LGA (Local Govt Area)"
-          className="w-1/2"
-          value={formData.lga}
-          onChange={handleChange}
-        />
-      </div>
+      <Input
+        name="course"
+        placeholder="Course of Study"
+        value={formData.course}
+        onChange={handleChange}
+        required
+      />
+      <Input
+        name="level"
+        placeholder="Current Level (e.g. 300L)"
+        value={formData.level}
+        onChange={handleChange}
+      />
+
+      <Input
+        name="matricNumber"
+        placeholder="Matric Number"
+        value={formData.matricNumber}
+        onChange={handleChange}
+      />
+      <Input
+        name="lga"
+        placeholder="LGA (Local Govt Area)"
+        value={formData.lga}
+        onChange={handleChange}
+      />
 
       <Textarea
         name="message"

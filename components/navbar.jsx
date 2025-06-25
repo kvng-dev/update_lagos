@@ -8,83 +8,179 @@ import {
   SheetContent,
   SheetDescription,
   SheetHeader,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   const handleClose = () => setOpen((prev) => !prev);
+
+  const menuVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        staggerChildren: 0.15,
+        when: "beforeChildren",
+      },
+    },
+  };
+
+  const navVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15, // Controls how fast each link comes in
+      },
+    },
+  };
+
+  const linkVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 80 },
+    },
+  };
+
+  const navbarVariants = {
+    hidden: { y: -80, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 80,
+        damping: 15,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
   return (
-    <div
-      className={`h-20 border-b border-muted-foreground/20 fixed top-0 left-0 w-full backdrop-blur-md z-49 justify-between bg-white`}
+    <motion.div
+      className="h-24 border-b border-muted-foreground/20 fixed top-0 left-0 w-full backdrop-blur-md z-49 justify-between bg-white"
+      initial="hidden"
+      animate="visible"
+      variants={navbarVariants}
     >
       <div className="flex h-full items-center justify-between container px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 mx-auto text-black">
-        <Link href={"/"} className="flex gap-2 text-xl font-semibold">
-          {/* <p className="tracking-wider">
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.6 }}
+        >
+          <Link href={"/"} className="flex gap-2 text-xl font-semibold">
+            {/* <p className="tracking-wider">
             Update<span className="text-[#108a00] ">Lagos</span>
           </p> */}
-          <Image
-            src={"/logo-update.png"}
-            width={700}
-            height={700}
-            alt="logo"
-            className="w-20 h-20"
-          />
-        </Link>
-
-        <div className="hidden md:flex gap-12 items-center">
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/programs">Programs</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="/sign-up">
-            <Button
-              className="bg-green-500 text-white border-none font-semibold"
-              variant={"outline"}
-            >
-              <Search />
-            </Button>
+            <Image
+              src={"/logo-update.png"}
+              width={700}
+              height={700}
+              alt="logo"
+              className="w-20 h-20"
+            />
           </Link>
-        </div>
+        </motion.div>
+
+        <motion.div
+          className="hidden md:flex gap-12 items-center"
+          variants={navVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {[
+            { href: "/", label: "Home" },
+            { href: "/about", label: "About" },
+            { href: "/programs", label: "Programs" },
+            { href: "/contact", label: "Contact" },
+          ].map(({ href, label }) => (
+            <motion.div key={href} variants={linkVariants}>
+              <Link href={href}>{label}</Link>
+            </motion.div>
+          ))}
+
+          <motion.div variants={linkVariants}>
+            <Link href="/sign-up">
+              <Button
+                className="bg-green-500 text-white border-none font-semibold"
+                variant="outline"
+              >
+                <Search />
+              </Button>
+            </Link>
+          </motion.div>
+        </motion.div>
 
         <div className="md:hidden text-black">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger>
               <Menu size={24} />
             </SheetTrigger>
-            <SheetContent className="h-full">
-              <div className="flex text-black flex-col text-2xl items-center my-32 gap-12">
-                <SheetHeader>
-                  <SheetDescription></SheetDescription>
-                </SheetHeader>
-                <Link href="/" onClick={handleClose}>
-                  Home
-                </Link>
-                <Link href="/about" onClick={handleClose}>
-                  About
-                </Link>
-                <Link href="/programs" onClick={handleClose}>
-                  Programs
-                </Link>
-                <Link href="/contact" onClick={handleClose}>
-                  Contact
-                </Link>
-                <Link href="/sign-up" onClick={handleClose}>
-                  <Button
-                    className="bg-grren-500 text-white border-none font-semibold"
-                    variant={"outline"}
-                  >
-                    <Search />
-                  </Button>
-                </Link>
-              </div>
+            <SheetContent className="h-full bg-white">
+              <SheetHeader className="absolute top-0 left-2">
+                <Image
+                  src={"/logo-update.png"}
+                  width={500}
+                  height={500}
+                  alt="logo"
+                  className="w-20 h-20"
+                />
+                <SheetTitle className="text-sm">
+                  <span className="text-red-500">Up</span>
+                  <span className="text-yellow-600">date</span>
+                  <span className="text-blue-600">Lagos</span>
+                </SheetTitle>
+              </SheetHeader>
+              <motion.div
+                className="flex text-black flex-col text-xl items-center justify-center gap-12 h-full"
+                variants={menuVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                {[
+                  { href: "/", label: "Home" },
+                  { href: "/about", label: "About" },
+                  { href: "/programs", label: "Programs" },
+                  { href: "/contact", label: "Contact" },
+                ].map(({ href, label }) => (
+                  <motion.div key={href} variants={itemVariants}>
+                    <Link
+                      className="px-4 text-gray-600 font-medium hover:scale-110"
+                      href={href}
+                      onClick={handleClose}
+                    >
+                      {label}
+                    </Link>
+                  </motion.div>
+                ))}
+
+                <motion.div variants={itemVariants}>
+                  <Link href="/sign-up" onClick={handleClose}>
+                    <Button
+                      className="bg-green-500 text-white border-none font-semibold"
+                      variant="outline"
+                    >
+                      <Search />
+                    </Button>
+                  </Link>
+                </motion.div>
+              </motion.div>
             </SheetContent>
           </Sheet>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 export default Navbar;

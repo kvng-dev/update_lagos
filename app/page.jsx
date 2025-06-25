@@ -1,7 +1,7 @@
 "use client";
 import Benefits from "@/components/benefits";
 import Slider from "@/components/slider";
-import Image from "next/image";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import {
@@ -13,6 +13,44 @@ import {
 
 export default function Home() {
   const [registeredStudents, setRegisteredStudents] = useState(null);
+
+  const stats = [
+    {
+      title: "Registered Students",
+      value: registeredStudents ?? 0,
+      icon: <FaUsers />,
+      description: "Total number of student accounts across Lagos",
+    },
+    {
+      title: "Helped Students with Disabilities",
+      value: 87,
+      icon: <FaWheelchair />,
+      description:
+        "Support and resources provided to students with disabilities",
+    },
+    {
+      title: "Loans Granted",
+      value: 3329,
+      icon: <FaCommentDots />,
+      description: "Number of financial loans granted to students",
+    },
+    {
+      title: "School Fees Paid",
+      value: 434,
+      icon: <FaChalkboardTeacher />,
+      description:
+        "Financial support provided to help students pay school fees",
+    },
+  ];
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.5, duration: 0.6 },
+    }),
+  };
 
   useEffect(() => {
     async function fetchUserCount() {
@@ -31,38 +69,28 @@ export default function Home() {
       <Slider />
       <div className="bg-white">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 container px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 mx-auto py-16 relative">
-          <StatsCard
-            title="Registered Students"
-            value={registeredStudents ?? 0}
-            icon={<FaUsers />}
-            description="Total number of student accounts across Lagos"
-          />
-
-          <StatsCard
-            title="Helped Students with Disabilities"
-            value={87}
-            icon={<FaWheelchair />}
-            description="Support and resources provided to students with disabilities"
-          />
-
-          <StatsCard
-            title="Loans Granted"
-            value={3329}
-            icon={<FaCommentDots />}
-            description="Number of financial loans granted to students"
-          />
-
-          <StatsCard
-            title="School Fees Paid"
-            value={434}
-            icon={<FaChalkboardTeacher />}
-            description="Financial support provided to help students pay school fees"
-          />
+          {stats.map((stat, i) => (
+            <motion.div
+              key={stat.title}
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+              custom={i}
+            >
+              <StatsCard {...stat} />
+            </motion.div>
+          ))}
         </div>
       </div>
       <Benefits />
 
-      <section className="w-full bg-gray-100 py-16 px-6">
+      <motion.section
+        className="w-full bg-gray-100 py-16 px-6"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6 text-gray-800">
             Watch Our Story
@@ -83,12 +111,12 @@ export default function Home() {
             ></video>
           </div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 }
 
-const StatsCard = ({ title, value, icon, description }) => {
+const StatsCard = ({ title, value, description }) => {
   return (
     <div className="px-4 lg:px-6 py-0 w-full max-w-sm text-gray-800 border-r border-gray last:border-r-0">
       <div className="flex items-center justify-between">
@@ -102,7 +130,6 @@ const StatsCard = ({ title, value, icon, description }) => {
             <CountUp start={0} end={value} duration={20.5} separator="," />
           </div>
         </div>
-        {/* {icon && <div className="text-green-600 text-xl">{icon}</div>} */}
       </div>
       {description && (
         <p className="text-xs text-gray-400 mt-2">{description}</p>
