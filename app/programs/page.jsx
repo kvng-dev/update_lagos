@@ -1,6 +1,12 @@
-"use client";
+// "use client";
 import UserForm from "@/components/user-form";
 import Image from "next/image";
+
+export const metadata = {
+  title: "Programs – Update Lagos",
+  description:
+    "Discover educational programs, government initiatives, and growth opportunities tailored for students in Lagos. Take the next step in your journey today.",
+};
 
 const Page = () => {
   return (

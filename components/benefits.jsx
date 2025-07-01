@@ -264,6 +264,7 @@ const Benefits = () => {
                   className="w-full"
                   key={number}
                   variants={itemVariants}
+                  whileInView={true}
                 >
                   <Step
                     number={number}
@@ -305,8 +306,8 @@ const Benefits = () => {
               <motion.div
                 key={work.title}
                 className="border border-gray-100 shadow-md rounded-md overflow-hidden group cursor-pointer transition-all duration-500 ease-in-out"
-                variants={cardVariant}
-                whileHover={{ scale: 1.03 }}
+                variants={itemVariants}
+                viewport={{ once: false }}
               >
                 <Image
                   src={work.image}

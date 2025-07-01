@@ -22,24 +22,19 @@ export default function Home() {
       description: "Total number of student accounts across Lagos",
     },
     {
-      title: "Helped Students with Disabilities",
+      title: "Student Support",
       value: 87,
       icon: <FaWheelchair />,
       description:
-        "Support and resources provided to students with disabilities",
+        "Support and resources provided to students in schools and communities",
     },
+
     {
-      title: "Loans Granted",
-      value: 3329,
-      icon: <FaCommentDots />,
-      description: "Number of financial loans granted to students",
-    },
-    {
-      title: "School Fees Paid",
+      title: "Employment Support",
       value: 434,
       icon: <FaChalkboardTeacher />,
       description:
-        "Financial support provided to help students pay school fees",
+        "Financial assistance and career support to help students cover tuition and find job opportunities",
     },
   ];
 
@@ -68,7 +63,7 @@ export default function Home() {
     <div>
       <Slider />
       <div className="bg-white">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 container px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 mx-auto py-16 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 container px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 mx-auto py-16 relative">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.title}

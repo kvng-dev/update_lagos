@@ -85,7 +85,7 @@ const Navbar = () => {
               width={700}
               height={700}
               alt="logo"
-              className="w-24 h-20"
+              className="md:w-24 md:h-20 w-18 h-16"
             />
           </Link>
         </motion.div>
@@ -133,7 +133,7 @@ const Navbar = () => {
                   width={700}
                   height={700}
                   alt="logo"
-                  className="w-24 h-20"
+                  className="w-20 h-16"
                 />
                 <SheetTitle className="text-sm">
                   <span className="text-red-500">Up</span>
@@ -141,8 +141,13 @@ const Navbar = () => {
                   <span className="text-blue-600">Lagos</span>
                 </SheetTitle>
               </SheetHeader>
+              <div className="absolute h-1/2 w-full top-1/4">
+                {/* <div className="w-12 h-12 rounded-full bg-red-600 opacity-30 left-4 bottom-12 absolute animate-" />
+                <div className="w-12 h-12 rounded-full bg-blue-600 opacity-30 right-4 top-12 absolute animate-pulse" /> */}
+                <div className="w-24 h-24 rounded-full bg-yellow-600 opacity-30 right-1/2 bottom-1/2 absolute animate-bounce -z-10" />
+              </div>
               <motion.div
-                className="flex text-black flex-col text-2xl font-light items-center justify-center gap-12 h-full"
+                className="flex text-black flex-col text-2xl font-light items-center justify-center gap-12 h-full z-30"
                 variants={menuVariants}
                 initial="hidden"
                 animate="visible"

@@ -63,7 +63,7 @@ const Footer = () => {
           </Link>
           <p className="tracking-wider font-bold md:text-2xl text-lg">
             <span className="text-red-500">Up</span>
-            <span className="text-yellow-600">date</span>
+            <span className="text-yellow-500">date</span>
             <span className="text-blue-600">Lagos</span>
           </p>
           <p className="italic text-red-700 text-xs">
