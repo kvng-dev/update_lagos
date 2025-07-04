@@ -46,9 +46,15 @@ export default function ContactPage() {
     <motion.div className="min-h-screen flex flex-col items-center justify-center bg-white py-28 px-6 text-black relative">
       <div
         className="absolute z-0
-       opacity-20 w-full flex items-center justify-center"
+       opacity-20 w-full flex items-center justify-center top-0 left-0 h-full"
       >
-        <Image src="/5124556.jpg" height={1000} width={1000} alt="" />
+        <Image
+          src="/update/DSC00852.JPG"
+          alt=""
+          height={1000}
+          width={1000}
+          className="object-cover h-full w-full"
+        />
       </div>
       <h1 className="text-4xl font-bold mb-12 text-green-700 text-center">
         Get in Touch with Us <br />

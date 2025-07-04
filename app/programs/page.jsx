@@ -10,14 +10,14 @@ export const metadata = {
 
 const Page = () => {
   return (
-    <div className="py-40 px-6 min-h-screen w-full bg-white text-black relative">
-      <div className="absolute z-0 opacity-10 w-[100%] flex items-center justify-center top-0 md:top-4 xl:top-40 h-full left-0">
+    <div className="pt-40 px-6 min-h-screen w-full bg-white text-black relative">
+      <div className="absolute z-0 opacity-10 w-screen flex items-center justify-center top-0 h-screen left-0">
         <Image
-          src="/6087298.jpg"
+          src="/update/DSC00030.JPG"
+          alt=""
           height={1000}
           width={1000}
-          alt=""
-          className="w-full"
+          className="h-full w-full object-cover object-[40%_30%]"
         />
       </div>
       <div className="max-w-3xl relative z-20 mx-auto text-center space-y-6">

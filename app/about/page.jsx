@@ -27,7 +27,7 @@ const Page = () => {
     >
       <div className="flex h-full items-center justify-between container px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 mx-auto text-black flex-col">
         <motion.h1
-          className="text-3xl md:text-4xl lg:text-5xl font-medium my-12 max-w-3xl text-center leading-14"
+          className="text-3xl md:text-4xl lg:text-5xl font-medium my-16 max-w-3xl text-center leading-14"
           variants={fadeInUp}
         >
           Building a Better Tomorrow, Together
@@ -35,17 +35,17 @@ const Page = () => {
 
         {/* Section 1 */}
         <motion.div
-          className="grid md:grid-cols-2 gap-8 h-full my-6 items-center"
+          className="grid md:grid-cols-2 gap-8 h-full pb-16 items-center my-16"
           variants={fadeInUp}
         >
           <Image
-            src="/green.jpg"
-            className="rounded-lg"
+            src="/update/DSC00069.JPG"
             alt=""
             height={1000}
             width={1000}
+            className="h-[500px] object-cover rounded-xl"
           />
-          <motion.p className="md:text-lg tracking-wide leading-8">
+          <motion.p className="md:text-lg tracking-wide leading-10">
             <span className="text-xl md:text-2xl text-green-500 font-bold">
               Update Lagos
             </span>{" "}
@@ -62,10 +62,10 @@ const Page = () => {
 
         {/* Section 2 */}
         <motion.div
-          className="flex flex-col-reverse md:grid md:grid-cols-2 gap-4 h-full my-6 items-center"
+          className="flex flex-col-reverse md:grid md:grid-cols-2 gap-4 h-full my-6 items-center pb-16"
           variants={fadeInUp}
         >
-          <motion.p className=" md:text-lg tracking-wide text-justify leading-8">
+          <motion.p className=" md:text-lg tracking-wide text-justify leading-10">
             Students with verified identities should be able to enjoy benefits
             ranging from as little as school books, to huge discounts and
             offers, down to part-time work{" "}
@@ -78,7 +78,13 @@ const Page = () => {
             has the individual right to comment and express their grievances and
             expectations from the Lagos Government.
           </motion.p>
-          <Image src="/3026238.jpg" alt="" height={1000} width={1000} />
+          <Image
+            src="/update/DSC00044.JPG"
+            alt=""
+            height={1000}
+            width={1000}
+            className="h-[500px] object-cover object-[10%_20%] rounded-xl"
+          />
         </motion.div>
 
         {/* Section 3 */}
@@ -86,7 +92,13 @@ const Page = () => {
           className="grid md:grid-cols-2 gap-4 h-full my-6 items-center"
           variants={fadeInUp}
         >
-          <Image src="/11201843.jpg" alt="" height={1000} width={1000} />
+          <Image
+            src="/DSC00793.JPG"
+            alt=""
+            height={1000}
+            width={1000}
+            className="h-[500px] object-cover rounded-xl"
+          />
           <motion.div>
             <p className="text-lg tracking-wide mb-4">
               Here is a couple of our{" "}

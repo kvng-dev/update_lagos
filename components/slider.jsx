@@ -14,7 +14,7 @@ const slides = [
     title: "Grants & Student Loans",
     description:
       "Get access to financial aid for tuition, housing, and living costs. Verified students can apply for grants and loans designed to support your academic journey.",
-    img: "/6006864.jpg",
+    img: "/update/DSC00856.JPG",
     cta: "Apply for Support",
   },
   {
@@ -22,7 +22,7 @@ const slides = [
     title: "Student Finance & Income Support",
     description:
       "Enjoy exclusive discounts and offers from our partners across Lagos — from food and travel to shopping and entertainment — just by showing your Student ID.",
-    img: "/pictures/shaquiel.jpg",
+    img: "/update/DSC00065.JPG",
     cta: "Explore Offers",
   },
   {
@@ -30,7 +30,7 @@ const slides = [
     title: "Support for Students with Disabilities",
     description:
       "Every Lagos student has the right to education. We provide additional financial and academic support for students with disabilities, ensuring no one is left behind.",
-    img: "/5324834.jpg",
+    img: "/update/DSC00040.JPG",
     cta: "Learn More",
   },
   {
@@ -38,7 +38,7 @@ const slides = [
     title: "Affordable Student Housing",
     description:
       "Access subsidized on-campus housing options across Lagos universities. Safe, affordable, and designed to help you focus on your studies.",
-    img: "/pictures/annie.jpg",
+    img: "/update/DSC00751.JPG",
     cta: "Find Housing",
   },
   {
@@ -46,7 +46,7 @@ const slides = [
     title: "Free & Subsidized Healthcare",
     description:
       "Students can apply for healthcare assistance — covering prescriptions, dental care, eye care, and more. Especially for those from low-income backgrounds.",
-    img: "/pictures/godfrey.jpg",
+    img: "/update/DSC00810.JPG",
     cta: "Access Healthcare",
   },
   {
@@ -54,7 +54,7 @@ const slides = [
     title: "Discounted Public Transport",
     description:
       "Show your Student ID and enjoy reduced fares on buses and other public transport systems within Lagos. Affordable and accessible travel for all students.",
-    img: "/pictures/marcus.jpg",
+    img: "/update/DSC00819.JPG",
     cta: "Get Travel Pass",
   },
 ];
@@ -82,7 +82,7 @@ const Slider = () => {
     <div className="">
       <Carousel
         swipeable={true}
-        draggable={false}
+        draggable={true}
         arrows={false}
         showDots={true}
         responsive={responsive}
@@ -106,7 +106,7 @@ const Slider = () => {
               width={5000}
               height={5000}
               sizes="100vw"
-              className="object-cover object-center w-full h-full"
+              className="object-cover object-left-top md:object-[60%_18%] w-full h-full"
             />
             <div className="absolute inset-0 z-30 text-white flex flex-col items-center justify-center text-center px-4">
               <motion.h1
