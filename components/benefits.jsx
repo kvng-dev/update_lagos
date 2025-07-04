@@ -120,25 +120,25 @@ const Benefits = () => {
 
   const forums = [
     {
-      image: "/authen.jpg",
+      image: "/DSC00723.JPG",
       title: "Submit Ideas",
       words:
         "Share your innovative ideas and solutions to address challenges faced by students in Lagos.",
     },
     {
-      image: "/2616092.jpg",
+      image: "/DSC00767.JPG",
       title: "Participate in Surveys",
       words:
         "Provide feedback on government policies and initiatives through surveys and polls.",
     },
     {
-      image: "/9894285.jpg",
+      image: "/DSC00842.JPG",
       title: "Join Forums",
       words:
         "Enagage in discussions with fellow students and government officials on importatnt topics.",
     },
     {
-      image: "/2989093.jpg",
+      image: "/DSC00832.JPG",
       title: "Collaborate on Projects",
       words:
         "Team up with other students and stakeholders to co-create impactful community-driven solutions.",
@@ -227,7 +227,7 @@ const Benefits = () => {
               className="flex-shrink-0 w-full rounded-lg overflow-hidden shadow-lg md:hidden lg:inline lg:col-span-1"
             >
               <img
-                src="5204985.jpg"
+                src="DSC00174.JPG"
                 alt="How It Works Illustration"
                 className="object-cover w-full h-80 md:h-full"
               />
@@ -315,7 +315,7 @@ const Benefits = () => {
                   height={600}
                   width={600}
                   sizes="55vw"
-                  className="w-full object-cover h-[250px]  group-hover:scale-105 transition-all"
+                  className="w-full object-cover h-[250px]  group-hover:scale-105 transition-all object-[40%_30%]"
                 />
                 <div className="group-hover:bg-green-400 p-6 group-hover:text-white h-full group-hover:underline">
                   <h4 className="font-semibold text-lg mb-4">{work.title}</h4>
