@@ -91,7 +91,7 @@ const Navbar = () => {
         </motion.div>
 
         <motion.div
-          className="hidden md:flex gap-12 items-center text-[18px] font-light"
+          className="hidden md:flex gap-12 items-center text-[16px] font-light"
           variants={navVariants}
           initial="hidden"
           animate="visible"
@@ -100,6 +100,8 @@ const Navbar = () => {
             { href: "/", label: "Home" },
             { href: "/about", label: "About" },
             { href: "/programs", label: "Programs" },
+            { href: "/gallery", label: "Gallery" },
+            { href: "/student-support", label: "Student Support" },
             { href: "/contact", label: "Contact" },
           ].map(({ href, label }) => (
             <motion.div key={href} variants={linkVariants}>
@@ -156,6 +158,8 @@ const Navbar = () => {
                   { href: "/", label: "Home" },
                   { href: "/about", label: "About" },
                   { href: "/programs", label: "Programs" },
+                  { href: "/gallery", label: "Gallery" },
+                  { href: "/student-support", label: "Student Support" },
                   { href: "/contact", label: "Contact" },
                 ].map(({ href, label }) => (
                   <motion.div key={href} variants={itemVariants}>

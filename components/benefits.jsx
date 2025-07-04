@@ -138,7 +138,7 @@ const Benefits = () => {
         "Enagage in discussions with fellow students and government officials on importatnt topics.",
     },
     {
-      image: "/DSC00832.JPG",
+      image: "/update/DSC00751.JPG",
       title: "Collaborate on Projects",
       words:
         "Team up with other students and stakeholders to co-create impactful community-driven solutions.",
