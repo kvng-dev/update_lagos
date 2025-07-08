@@ -11,7 +11,7 @@ export const metadata = {
 const Page = () => {
   return (
     <div className="pt-40 px-6 min-h-screen w-full bg-white text-black relative">
-      <div className="absolute z-0 opacity-10 w-screen flex items-center justify-center top-0 h-screen left-0">
+      <div className="absolute z-0 opacity-10 w-screen flex items-center justify-center top-30 h-screen left-0">
         <Image
           src="/update/DSC00030.JPG"
           alt=""

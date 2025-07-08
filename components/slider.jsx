@@ -132,7 +132,7 @@ const Slider = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
-                <Link href={"/"}>
+                {/* <Link href={"/"}>
                   <Button
                     size={"lg"}
                     variant={"outline"}
@@ -140,7 +140,7 @@ const Slider = () => {
                   >
                     {slide.cta}
                   </Button>
-                </Link>
+                </Link> */}
               </motion.div>
             </div>
           </div>

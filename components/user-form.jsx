@@ -102,6 +102,15 @@ export default function UserForm() {
         onChange={handleChange}
       />
 
+      <Textarea
+        name="needs"
+        placeholder="Give us a brief description of your needs..."
+        value={formData.needs}
+        rows={6}
+        className="resize-none"
+        onChange={handleChange}
+      />
+
       <Button
         type="submit"
         className="bg-green-600 text-white font-bold hover:bg-green-700 mt-4"

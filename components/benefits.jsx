@@ -227,9 +227,9 @@ const Benefits = () => {
               className="flex-shrink-0 w-full rounded-lg overflow-hidden shadow-lg md:hidden lg:inline lg:col-span-1"
             >
               <img
-                src="DSC00174.JPG"
+                src="DSC00832.JPG"
                 alt="How It Works Illustration"
-                className="object-cover w-full h-80 md:h-full"
+                className="object-cover w-full h-100"
               />
             </motion.div>
             {/* Animated Steps */}

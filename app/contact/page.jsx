@@ -3,7 +3,12 @@
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FaInstagram, FaSnapchatGhost, FaTiktok } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaSnapchatGhost,
+  FaTiktok,
+  FaYoutube,
+} from "react-icons/fa";
 
 const socials = [
   {
@@ -20,6 +25,11 @@ const socials = [
     name: "TikTok",
     url: "https://www.tiktok.com/@update.lagos",
     icon: <FaTiktok size={32} className="text-black" />,
+  },
+  {
+    name: "YouTube",
+    url: "https://www.youtube.com/@update.lagos",
+    icon: <FaYoutube size={28} className="text-red-600" />,
   },
 ];
 

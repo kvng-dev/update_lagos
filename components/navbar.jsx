@@ -91,7 +91,7 @@ const Navbar = () => {
         </motion.div>
 
         <motion.div
-          className="hidden md:flex gap-12 items-center text-[16px] font-light"
+          className="hidden lg:flex gap-12 items-center text-[16px] font-light"
           variants={navVariants}
           initial="hidden"
           animate="visible"
@@ -111,7 +111,7 @@ const Navbar = () => {
             </motion.div>
           ))}
 
-          <motion.div variants={linkVariants}>
+          {/* <motion.div variants={linkVariants}>
             <Link href="/sign-up">
               <Button
                 className="bg-green-500 text-white border-none font-semibold"
@@ -120,15 +120,15 @@ const Navbar = () => {
                 <Search />
               </Button>
             </Link>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
 
-        <div className="md:hidden text-black">
+        <div className="lg:hidden text-black">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger>
               <Menu size={24} />
             </SheetTrigger>
-            <SheetContent className="h-full bg-white">
+            <SheetContent className="h-full bg-white" side="top">
               <SheetHeader className="absolute top-0 left-2">
                 <Image
                   src={"/u-logo.png"}
@@ -137,6 +137,8 @@ const Navbar = () => {
                   alt="logo"
                   className="w-20 h-16"
                 />
+
+                {/* <div className="bg-[url('/dami.jpg')] bg-right opacity-60 absolute top-0 -left-2 w-screen h-screen -z-3" /> */}
                 <SheetTitle className="text-sm">
                   <span className="text-red-500">Up</span>
                   <span className="text-yellow-600">date</span>
@@ -149,7 +151,7 @@ const Navbar = () => {
                 <div className="w-24 h-24 rounded-full bg-yellow-600 opacity-30 right-1/2 bottom-1/2 absolute animate-bounce -z-10" />
               </div>
               <motion.div
-                className="flex text-black flex-col text-2xl font-light items-center justify-center gap-12 h-full z-30"
+                className="flex flex-col text-2xl font-light items-center justify-center gap-12 h-full z-30 text-white"
                 variants={menuVariants}
                 initial="hidden"
                 animate="visible"
@@ -164,7 +166,7 @@ const Navbar = () => {
                 ].map(({ href, label }) => (
                   <motion.div key={href} variants={itemVariants}>
                     <Link
-                      className="px-4 text-gray-600 font-medium hover:scale-110"
+                      className="px-4 text-gray-800 font-semibold hover:scale-110"
                       href={href}
                       onClick={handleClose}
                     >

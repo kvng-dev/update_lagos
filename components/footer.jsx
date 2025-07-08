@@ -1,7 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaInstagram, FaSnapchatGhost, FaTiktok } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaSnapchatGhost,
+  FaTiktok,
+  FaYoutube,
+} from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -20,6 +25,11 @@ const socials = [
     name: "TikTok",
     url: "https://www.tiktok.com/@update.lagos",
     icon: <FaTiktok size={28} className="text-white" />,
+  },
+  {
+    name: "YouTube",
+    url: "https://www.youtube.com/@update.lagos",
+    icon: <FaYoutube size={28} className="text-red-600" />,
   },
 ];
 
@@ -73,7 +83,7 @@ const Footer = () => {
 
         {/* Info & Links */}
         <motion.div
-          className="flex gap-6 w-full flex-col md:flex-row"
+          className="flex gap-6 w-full flex-col sm:flex-row"
           variants={staggerContainer}
         >
           <motion.div
@@ -107,7 +117,7 @@ const Footer = () => {
 
           <motion.div
             variants={fadeUp}
-            className="flex gap-8 lg:gap-12 items-center text-white justify-center w-full md:flex-col"
+            className="flex gap-8 lg:gap-12 items-center text-white justify-center w-full sm:flex-col"
           >
             <Link className="hover:underline" href="/">
               Home
