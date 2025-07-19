@@ -57,7 +57,6 @@ export default function AdminLogin() {
           variant={"outline"}
           onClick={handleLogin}
           className="bg-green-600 text-white w-full py-2 rounded  gap-4 font-medium flex"
-          justify-center
           disabled={isLoading}
         >
           {isLoading ? <Loader2 className="animate-spin" /> : "Login"}

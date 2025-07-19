@@ -6,16 +6,9 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
   try {
     const body = await req.json();
-    const {
-      name,
-      email,
-      phone,
-      school,
-      course,
-      level,
-    } = body;
+    const { name, email, phone, school, course, level, needs } = body;
 
-    if (!name || !email || !phone || !school  || !level) {
+    if (!name || !email || !phone || !school || !level || !needs) {
       return NextResponse.json({ error: "Missing fields" }, { status: 400 });
     }
 
@@ -27,6 +20,7 @@ export async function POST(req) {
         school,
         course,
         level,
+        needs,
       },
     });
 

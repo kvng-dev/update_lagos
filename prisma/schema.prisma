@@ -13,7 +13,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model User {
   id                 Int @id @default(autoincrement())
   name              String
@@ -22,5 +21,6 @@ model User {
   school             String?
   course             String?
   level               String?
+  needs             String?
   createdAt DateTime @default(now())
 }

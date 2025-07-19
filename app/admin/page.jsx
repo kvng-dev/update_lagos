@@ -60,9 +60,9 @@ export default async function AdminPage() {
         {users.length === 0 ? (
           <p className="text-2xl my-24 text-center">No submissions found.</p>
         ) : (
-          <Table className="py-24 border rounded-md">
+          <Table className="py-24  rounded-md overflow-hidden">
             <TableCaption>A list of form submissions.</TableCaption>
-            <TableHeader>
+            <TableHeader className="bg-gray-900/10">
               <TableRow>
                 <TableHead>Name</TableHead>
                 <TableHead>Email</TableHead>
@@ -70,6 +70,7 @@ export default async function AdminPage() {
                 <TableHead>School</TableHead>
                 <TableHead>Course</TableHead>
                 <TableHead>Level</TableHead>
+                <TableHead>Needs</TableHead>
                 <TableHead className="text-right">Actions</TableHead>
               </TableRow>
             </TableHeader>
@@ -82,6 +83,7 @@ export default async function AdminPage() {
                   <TableCell>{submission.school}</TableCell>
                   <TableCell>{submission.course}</TableCell>
                   <TableCell>{submission.level}</TableCell>
+                  <TableCell>{submission.needs}</TableCell>
                   <TableCell className="text-right px-6">
                     <AlertDialog>
                       <AlertDialogTrigger>

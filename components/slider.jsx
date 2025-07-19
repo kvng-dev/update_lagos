@@ -1,11 +1,9 @@
 "use client";
-
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 import Image from "next/image";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 import { motion } from "framer-motion";
 
 const slides = [
@@ -60,79 +58,54 @@ const slides = [
 ];
 
 const Slider = () => {
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 1,
-      slidesToSlide: 1, // optional, default to 1.
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 1,
-      slidesToSlide: 1, // optional, default to 1.
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-      slidesToSlide: 1, // optional, default to 1.
-    },
-  };
-
   return (
     <div className="">
-      <Carousel
-        swipeable={true}
-        draggable={true}
-        arrows={false}
-        showDots={true}
-        responsive={responsive}
-        ssr={true}
-        autoPlay={true}
-        infinite={true}
-        autoPlaySpeed={2000}
-        keyBoardControl={true}
-        customTransition="all .5"
-        transitionDuration={2000}
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-        dotListClass="custom-dot-list-style"
+      <Swiper
+        modules={[Autoplay, Pagination]}
+        autoplay={{ delay: 6000, disableOnInteraction: false }}
+        pagination={{ clickable: true }}
+        loop={true}
+        slidesPerView={1}
+        className="w-full h-[80vh] md:h-screen"
       >
         {slides.map((slide) => (
           <div key={slide.id} className="h-[900px]">
-            <div className="absolute w-full h-full bg-black/30 z-10" />
+            <SwiperSlide key={slide.id} className="relative w-full h-full">
+              <div className="absolute w-full h-full bg-black/30 z-10" />
 
-            <Image
-              src={slide.img}
-              alt=""
-              width={5000}
-              height={5000}
-              sizes="100vw"
-              className="object-cover object-left-top md:object-[60%_18%] w-full h-full"
-            />
-            <div className="absolute inset-0 z-30 text-white flex flex-col items-center justify-center text-center px-4">
-              <motion.h1
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 2.8, ease: "easeOut" }}
-                className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-2 bg-gradient-to-br from-white to-gray-300 bg-clip-text text-transparent"
-              >
-                {slide.title}
-              </motion.h1>
+              <Image
+                src={slide.img}
+                alt=""
+                width={5000}
+                height={5000}
+                sizes="100vw"
+                className="object-cover object-left-top md:object-[60%_18%] w-full h-full"
+              />
+              <div className="absolute inset-0 z-30 text-white flex flex-col items-center justify-center text-center px-4">
+                <motion.h1
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 2.8, ease: "easeOut" }}
+                  className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-2 bg-gradient-to-br from-white to-gray-500 bg-clip-text text-transparent max-w-4xl"
+                >
+                  {slide.title}
+                </motion.h1>
 
-              <motion.h2
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.2, duration: 0.6 }}
-                className={`text-lg md:text-2xl max-w-4xl`}
-              >
-                {slide.description}
-              </motion.h2>
+                <motion.h2
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.2, duration: 0.6 }}
+                  className={`text-lg md:text-2xl max-w-3xl`}
+                >
+                  {slide.description}
+                </motion.h2>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-              >
-                {/* <Link href={"/"}>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                >
+                  {/* <Link href={"/"}>
                   <Button
                     size={"lg"}
                     variant={"outline"}
@@ -141,11 +114,12 @@ const Slider = () => {
                     {slide.cta}
                   </Button>
                 </Link> */}
-              </motion.div>
-            </div>
+                </motion.div>
+              </div>
+            </SwiperSlide>
           </div>
         ))}
-      </Carousel>
+      </Swiper>
     </div>
   );
 };

@@ -14,6 +14,7 @@ export default function UserForm() {
     school: "",
     course: "",
     level: "",
+    needs: "",
   });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -44,6 +45,7 @@ export default function UserForm() {
         school: "",
         course: "",
         level: "",
+        needs: "",
       });
     } catch (error) {
       toast.error("Submission error. Please try again.");
@@ -106,8 +108,7 @@ export default function UserForm() {
         name="needs"
         placeholder="Give us a brief description of your needs..."
         value={formData.needs}
-        rows={6}
-        className="resize-none"
+        className="resize-none h-24"
         onChange={handleChange}
       />
 
